@@ -5,4 +5,4 @@ envsubst < ./k8s/kustomization-template.yaml > "./k8s/base/kustomization.yaml"
  
 gcloud docker -- push asia.gcr.io/${PROJECT_NAME}/${IMAGE_NAME}:$CIRCLE_SHA1
 
-kustomize build "./k8s/base" | kubectl apply -f -
+kubectl kustomize "./k8s/base" | kubectl apply -f -
